@@ -1,19 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function TransactionForm({ addTransaction }) {
+function TransactionForm({ addTransaction, editTransaction, editingTransaction }) {
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
+  const [recurring, setRecurring] = useState(false)
+
+  useEffect(() => {
+    if (editingTransaction) {
+      setAmount(editingTransaction.amount);
+      setDate(editingTransaction.date);
+      setCategory(editingTransaction.category);
+      setDescription(editingTransaction.description);
+    } else {
+      setAmount('');
+      setDate('');
+      setCategory('');
+      setDescription('');
+      setRecurring(false);
+    }
+  }, [editingTransaction]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTransaction({ amount, date, category, description });
+    const transaction = { amount, date, category, description,recurring };
+
+    if (editingTransaction) {
+      editTransaction(transaction);
+    } else {
+      addTransaction(transaction);
+    }
+
     setAmount('');
     setDate('');
     setCategory('');
     setDescription('');
+    setRecurring(false);
   };
+
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -40,7 +66,12 @@ function TransactionForm({ addTransaction }) {
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
       />
-      <button type="submit">Add Transaction</button>
+      <input type="checkbox"
+        id='checkbox'
+        value={recurring}
+        onChange={(e) => { setRecurring(e.target.checked) }} />
+      <label htmlFor="checkbox">Recurring</label>
+      <button type="submit">{editingTransaction ? 'Update' : 'Add'} Transaction</button>
     </form>
   );
 }

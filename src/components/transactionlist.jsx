@@ -1,12 +1,13 @@
 import React from 'react';
 
-function TransactionList({ transactions, deleteTransaction }) {
+function TransactionList(props) {
   return (
     <ul>
-      {transactions.map((transaction, index) => (
+      {props.transactions.map((transaction, index) => (
         <li key={index}>
-          {transaction.date} - {transaction.category}: ${transaction.amount} ({transaction.description})
-          <button onClick={() => deleteTransaction(index)}>Delete</button>
+          {transaction.date} - {transaction.category}: ${transaction.amount} ({transaction.description}) {transaction.recurring && <div>Recurring</div> }
+          <button onClick={() => props.startEditingTransaction(index)}>Edit</button>
+          <button onClick={() => props.deleteTransaction(index)}>Delete</button>
         </li>
       ))}
     </ul>
