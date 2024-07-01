@@ -1,18 +1,24 @@
 import React from 'react';
 
 function TransactionList(props) {
-  return ( <div className="transaction-list">
+  return (<div className="transaction-list">
     <h2 className='heading'>Transaction List</h2>
-    <ul>
-    {props.transactions.map((transaction, index) => (
-      <li className='transaction' key={index}>
-        {transaction.date} - {transaction.category}: ${transaction.amount} ({transaction.description}) {transaction.recurring && <div>Recurring</div> }
-        <button id='editButton' onClick={() => props.startEditingTransaction(index)}>Edit</button>
-        <button id='deleteButton' onClick={() => props.deleteTransaction(index)}>Delete</button>
-      </li>
-    ))}
-  </ul></div>
-    
+    <ul className="TransactionList">
+      {props.transactions.map((transaction, index) => (
+        <li className='transaction' key={index}>
+          <div className="transaction-details">
+            <div className="date">Date: {transaction.date}</div> <div className="category">Category: {transaction.category}</div> <div className="amount money">₹{transaction.amount}</div> <div className="description">Description: {transaction.description}</div>
+            {transaction.recurring && <div className="recurring">Recurring</div>}
+          </div>
+          <div className="transaction-actions">
+            <button id='editButton' onClick={() => props.startEditingTransaction(index)}>Edit</button>
+            <button id='deleteButton' onClick={() => props.deleteTransaction(index)}>Delete</button>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
   );
 }
 

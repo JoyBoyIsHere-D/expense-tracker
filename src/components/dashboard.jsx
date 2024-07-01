@@ -8,9 +8,9 @@ function Dashboard(props) {
     <div className="Dashboard">
       <h2 className='heading'>Dashboard</h2>
       <div className="dashboard-overview">
-        <div>Total Income: ₹{props.total}</div>
-        <div>Total Expenses: ₹{props.expense}</div>
-        <div>Balance: ₹{props.balance}</div>
+        <div>Total Income: <div className="money" >₹{props.total}</div> </div>
+        <div>Total Expenses: <div className="money" >₹{props.expense}</div> </div>
+        <div>Balance: <div className="money" >₹{props.balance}</div></div>
       </div>
       <RecentTransactions transactions = {props.transactions}></RecentTransactions>
       

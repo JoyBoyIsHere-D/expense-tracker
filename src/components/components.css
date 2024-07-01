@@ -8,7 +8,7 @@
 
     padding: 20px;
 
-    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    
 }
 
 .navbar ul {
@@ -91,9 +91,9 @@
 
 #deleteButton {
     background-color: #f00;
-    /* Red color */
+    
     color: #fff;
-    /* White text */
+    
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -102,21 +102,89 @@
     transition: all 0.2s ease-in-out;
 }
 
-#deleteButton:hover{
+#deleteButton:hover {
     background-color: #c00;
 }
 
 #editButton {
-    background-color: #307bff; /* Blue color */
-  color: #fff; /* White text */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-block;
-  transition: all 0.2s ease-in-out; 
+    background-color: #307bff;
+    
+    color: #fff;
+    
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
 }
 
-#editButton:hover{
+#editButton:hover {
     background-color: #286090;
+}
+
+.money{
+    font-family: Roboto Mono, monospace;
+    display: inline-block;
+}
+
+.transaction {
+    
+    
+    background-color: #F9F7F7;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.transaction:hover {
+    background-color: #f9f9f9;
+}
+
+.transaction-details {
+    display: inline-block;
+}
+
+.transaction-details>div {
+    margin-bottom: 5px;
+}
+
+.date {
+    font-weight: bold;
+    color: #2C3E50;
+}
+
+.category {
+    font-weight: bold;
+    color: #16A085;
+}
+
+.amount {
+    font-weight: bold;
+    color: #E74C3C;
+}
+
+.description {
+    font-style: italic;
+    color: #7F8C8D;
+}
+
+.recurring {
+    color: #E67E22;
+    font-weight: bold;
+}
+
+.transaction-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.recent ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

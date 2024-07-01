@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Dashboard from './components/dashboard';
 import TransactionForm from './components/transactionform';
 import TransactionList from './components/transactionlist';
-import Navbar from './components/Navbar';
 import Footer from './components/footer';
 import Header from './components/header';
 import './App.css'

@@ -7,8 +7,8 @@ function printLastFive(arr) {
     return arr.map((transaction, index) => {
 
         if (index >= startIndex) {
-            return (<li key={index}>
-                {transaction.date} - {transaction.category}: ${transaction.amount} ({transaction.description}) {transaction.recurring && <div>Recurring</div>}
+            return (<li className='' style={{display:'inline-flex', gap: '10px'}} key={index}>
+                <div className="date">{transaction.date}</div> - <div className="category">  {transaction.category}</div>: <div className="amount money">₹{transaction.amount}</div>
             </li>);
         } 
     });
