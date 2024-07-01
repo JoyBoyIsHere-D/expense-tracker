@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './components.css'
 
 function TransactionForm({ addTransaction, editTransaction, editingTransaction }) {
   const [amount, setAmount] = useState('');
@@ -24,7 +25,7 @@ function TransactionForm({ addTransaction, editTransaction, editingTransaction }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const transaction = { amount, date, category, description,recurring };
+    const transaction = { amount, date, category, description, recurring };
 
     if (editingTransaction) {
       editTransaction(transaction);
@@ -42,36 +43,60 @@ function TransactionForm({ addTransaction, editTransaction, editingTransaction }
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="number"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        placeholder="Amount"
-      />
-      <input
-        type="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-      />
-      <input
-        type="text"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        placeholder="Category"
-      />
-      <input
-        type="text"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
-      />
-      <input type="checkbox"
-        id='checkbox'
-        value={recurring}
-        onChange={(e) => { setRecurring(e.target.checked) }} />
-      <label htmlFor="checkbox">Recurring</label>
-      <button type="submit">{editingTransaction ? 'Update' : 'Add'} Transaction</button>
+    <form className="TransactionForm" onSubmit={handleSubmit}>
+      <div className="form-row">
+        <label htmlFor="amount">Amount</label>
+        <input
+          type="number"
+          id="amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Amount"
+          
+        />
+      </div>
+      
+      <div className="form-row">
+        <label htmlFor="category">Category</label>
+        <input
+          type="text"
+          id="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          placeholder="Category"
+          
+        />
+      </div>
+      <div className="form-row">
+        <label htmlFor="date">Date</label>
+        <input
+          type="date"
+          id="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          
+        />
+      </div>
+      <div className="form-row">
+        <label htmlFor="description">Description</label>
+        <input
+          type="text"
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Description"
+        />
+      </div>
+      <div className="form-row">
+        <input type="checkbox"
+          id='checkbox'
+          value={recurring}
+          onChange={(e) => { setRecurring(e.target.checked) }} />
+        <label htmlFor="checkbox">Recurring</label>
+      </div>
+      <div className="form-row">
+        <button type="submit">{editingTransaction ? 'Update' : 'Add'} Transaction</button>
+      </div>
     </form>
   );
 }

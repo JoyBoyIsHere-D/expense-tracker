@@ -4,6 +4,8 @@ import TransactionForm from './components/transactionform';
 import TransactionList from './components/transactionlist';
 import Navbar from './components/Navbar';
 import Footer from './components/footer';
+import Header from './components/header';
+import './App.css'
 
 function App() {
   const [total,setTotal] = useState(10000);
@@ -47,10 +49,8 @@ function App() {
     const newTransactions = transactions.map((transaction, index) =>
       index === editingTransaction.index ? updatedTransaction : transaction
     );
-
-    
     setExpense((prevValue) => {
-      return Number(prevValue + Number(updatedTransaction.amount) -Number(oldTransaction.amount)  );
+      return Number(prevValue + Number(updatedTransaction.amount) - Number(oldTransaction.amount)  );
     })
     setBalance((prevValue) => {
       return Number(prevValue + Number(oldTransaction.amount) - Number(updatedTransaction.amount)  );
@@ -61,8 +61,9 @@ function App() {
 
   return (    
     <div className="App">
-      <Navbar/>
-      <Dashboard total = {total} expense = {expense} balance = {balance}/>
+      <Header></Header>
+      
+      <Dashboard total = {total} expense = {expense} balance = {balance} transactions = {transactions}/>
       <TransactionForm
           addTransaction={addTransaction}
           editTransaction={editTransaction}

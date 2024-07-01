@@ -1,0 +1,122 @@
+.Dashboard {
+    margin-bottom: 20px;
+}
+
+.dashboard-overview {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+
+}
+
+.header {
+    background-color: #112D4E;
+    color: aliceblue;
+    height: 40px;
+    font-size: x-large;
+    padding: 20px;
+    font-weight: bold;
+
+
+}
+
+.transaction-list li {
+    list-style-type: none;
+}
+
+.heading {
+    background-color: #3F72AF;
+    color: aliceblue;
+    padding: 15px;
+
+}
+
+.TransactionForm {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    background-color: #F9F7F7;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.TransactionForm .form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.TransactionForm label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.TransactionForm input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.TransactionForm button {
+    grid-column: span 2;
+    padding: 10px;
+    background-color: #3498DB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.TransactionForm button:hover {
+    background-color: #2980B9;
+}
+
+@media (max-width: 600px) {
+    .TransactionForm {
+        grid-template-columns: 1fr;
+    }
+}
+
+#deleteButton {
+    background-color: #f00;
+    /* Red color */
+    color: #fff;
+    /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+#deleteButton:hover{
+    background-color: #c00;
+}
+
+#editButton {
+    background-color: #307bff; /* Blue color */
+  color: #fff; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s ease-in-out; 
+}
+
+#editButton:hover{
+    background-color: #286090;
+}
