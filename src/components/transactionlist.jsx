@@ -2,7 +2,7 @@ import React from 'react';
 
 function TransactionList(props) {
   return (<div className="transaction-list">
-    <h2 className='heading'>Transaction List</h2>
+    
     <ul className="TransactionList">
       {props.transactions.map((transaction, index) => (
         <li className='transaction' key={index}>

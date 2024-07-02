@@ -87,12 +87,12 @@ function TransactionForm({ addTransaction, editTransaction, editingTransaction }
           placeholder="Description"
         />
       </div>
-      <div className="form-row">
+      <div className="form-row checkbox" style={{flexDirection: "row"}}>
         <input type="checkbox"
-          id='checkbox'
+          id='checkbox1'
           value={recurring}
           onChange={(e) => { setRecurring(e.target.checked) }} />
-        <label htmlFor="checkbox">Recurring</label>
+        <label htmlFor="checkbox1">Recurring</label>
       </div>
       <div className="form-row">
         <button type="submit">{editingTransaction ? 'Update' : 'Add'} Transaction</button>

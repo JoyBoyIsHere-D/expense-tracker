@@ -1,5 +1,5 @@
 import React from 'react';
-import RecentTransactions from './recentTransaction';
+
 import Footer from './footer';
 import './components.css'
 
@@ -12,7 +12,7 @@ function Dashboard(props) {
         <div>Total Expenses: <div className="money" >₹{props.expense}</div> </div>
         <div>Balance: <div className="money" >₹{props.balance}</div></div>
       </div>
-      <RecentTransactions transactions = {props.transactions}></RecentTransactions>
+      
       
     </div>
   );

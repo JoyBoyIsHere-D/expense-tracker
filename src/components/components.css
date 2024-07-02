@@ -3,12 +3,18 @@
 }
 
 .dashboard-overview {
+    background-color: #DBE2EF;
     display: flex;
-    justify-content: space-between;
-
+    justify-content: space-around;
+    font-weight: bolder;
+    font-size: larger;
     padding: 20px;
 
     
+}
+
+.navbar{
+    width: 100%;
 }
 
 .navbar ul {
@@ -27,8 +33,13 @@
     font-size: x-large;
     padding: 20px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
 
+}
 
+.transaction-list{
+    min-height: 70vh;
 }
 
 .transaction-list li {
@@ -42,7 +53,8 @@
 
 }
 
-.TransactionForm {
+.TransactionForm, .IncomeForm {
+    width: 40%;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 20px;
@@ -53,23 +65,23 @@
     margin-bottom: 20px;
 }
 
-.TransactionForm .form-row {
+.TransactionForm .form-row, .IncomeForm .form-row {
     display: flex;
     flex-direction: column;
 }
 
-.TransactionForm label {
+.TransactionForm label, .IncomeForm label {
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.TransactionForm input {
+.TransactionForm input, .IncomeForm input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.TransactionForm button {
+.TransactionForm button, .IncomeForm button {
     grid-column: span 2;
     padding: 10px;
     background-color: #3498DB;
@@ -79,12 +91,19 @@
     cursor: pointer;
 }
 
-.TransactionForm button:hover {
+.checkbox{
+    
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.TransactionForm button:hover, .IncomeForm button:hover {
     background-color: #2980B9;
 }
 
 @media (max-width: 600px) {
-    .TransactionForm {
+    .TransactionForm, .IncomeForm {
         grid-template-columns: 1fr;
     }
 }
@@ -182,8 +201,18 @@
     gap: 10px;
 }
 
+.recent{
+    width: 40%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
 .recent ul{
+    margin-top: 10px;
     display: flex;
+    gap: 14px;
     flex-direction: column;
     justify-content: center;
     align-items: center;

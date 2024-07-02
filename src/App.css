@@ -6,10 +6,18 @@
   margin: 0;
   padding: 0;
   font-family: "Lato", sans-serif;
+  
 }
 .App {
   text-align: center;
   background-color: #F9F7F7;
 }
+
+.container{
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
 
 

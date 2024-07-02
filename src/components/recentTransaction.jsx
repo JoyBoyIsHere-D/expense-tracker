@@ -8,7 +8,7 @@ function printLastFive(arr) {
 
         if (index >= startIndex) {
             return (<li className='' style={{display:'inline-flex', gap: '10px'}} key={index}>
-                <div className="date">{transaction.date}</div> - <div className="category">  {transaction.category}</div>: <div className="amount money">₹{transaction.amount}</div>
+                <div className="date">{transaction.date}</div> - <div className="category">  {transaction.category}</div>: <div className="amount money">₹{transaction.amount}</div> {transaction.recurring && <div className="recurring">(Recurring)</div>}
             </li>);
         } 
     });
@@ -16,6 +16,7 @@ function printLastFive(arr) {
 
 function RecentTransactions(props) {
     return (<div className="recent">
+        <h2>Recent Transactions</h2>
         <ul>
             {printLastFive(props.transactions)}
         </ul>
