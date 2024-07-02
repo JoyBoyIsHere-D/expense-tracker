@@ -63,7 +63,7 @@
 }
 
 .TransactionForm, .IncomeForm {
-    width: 25%;
+    width: 30%;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 20px;
