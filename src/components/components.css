@@ -41,6 +41,8 @@
 
 .transaction-list{
     min-height: 700px;
+    max-height: 100vh;
+    overflow: auto;
     width: 40%;
 }
 
@@ -50,6 +52,7 @@
 
 .transaction-list li {
     list-style-type: none;
+    
 }
 
 .heading {
@@ -227,13 +230,16 @@
     flex-direction: column;
     align-items: center;
 }
+.recent ul li{
+    align-items: center;
+}
 
 .recent-header{
     border-radius: 32px;
     background-color: rgba(236, 236, 236, 1);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 
 .header {
     position: fixed;
@@ -265,4 +271,10 @@ nav a {
 nav a:hover,
 nav a.active {
     color: #0ef;
+}
+
+.footer{
+    background-color: #112D4E;
+    color: aliceblue;
+    height: 100px;
 }

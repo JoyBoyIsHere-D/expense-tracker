@@ -52,7 +52,7 @@ function TransactionForm({ addTransaction, editTransaction, editingTransaction }
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Amount"
-          
+          required
         />
       </div>
       
@@ -64,7 +64,7 @@ function TransactionForm({ addTransaction, editTransaction, editingTransaction }
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           placeholder="Category"
-          
+          required
         />
       </div>
       <div className="form-row">
@@ -74,7 +74,7 @@ function TransactionForm({ addTransaction, editTransaction, editingTransaction }
           id="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          
+          required
         />
       </div>
       <div className="form-row">
@@ -95,7 +95,7 @@ function TransactionForm({ addTransaction, editTransaction, editingTransaction }
         <label htmlFor="checkbox1">Recurring</label>
       </div>
       <div className="form-row">
-        <button type="submit">{editingTransaction ? 'Update' : 'Add'} Expense</button>
+        <button type="submit" style={{fontWeight: 'bold'}}>{editingTransaction ? 'Update' : 'Add'} Expense</button>
       </div>
     </form>
   );

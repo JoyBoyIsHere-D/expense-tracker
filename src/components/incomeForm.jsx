@@ -51,6 +51,7 @@ function IncomeForm({ addIncome, editIncome, editingIncome }) {
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     placeholder='Amount'
+                    required
                 />
             </div>
 
@@ -63,6 +64,7 @@ function IncomeForm({ addIncome, editIncome, editingIncome }) {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                     placeholder='Category'
+                    required
                 />
             </div>
             <div className="form-row">
@@ -73,7 +75,7 @@ function IncomeForm({ addIncome, editIncome, editingIncome }) {
                     name="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-
+                    required
                 />
             </div>
 
@@ -97,7 +99,7 @@ function IncomeForm({ addIncome, editIncome, editingIncome }) {
                 />
                 <label htmlFor='checkbox2' >Recurring</label>
             </div>
-            <div className="form-row"><button type="submit">{editingIncome ? 'Edit Income' : 'Add Income'}</button></div>
+            <div className="form-row"><button type="submit" style={{fontWeight: 'bold'}}>{editingIncome ? 'Edit Income' : 'Add Income'}</button></div>
         </form>
     );
 }

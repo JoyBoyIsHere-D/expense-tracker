@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 
 
 function SpendingChart({ transactions, color }) {
-  // Aggregate transaction amounts by date
+  // Add up transaction amounts by date
   const aggregatedData = transactions.reduce((acc, transaction) => {
     const existing = acc.find(item => item.date === transaction.date);
     if (existing) {
@@ -38,7 +38,7 @@ function SpendingChart({ transactions, color }) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="amount" fill={color} />
+            <Bar dataKey="Amount" fill={color} />
         </BarChart>
         </ResponsiveContainer>
     </div>
