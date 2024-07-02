@@ -2,7 +2,7 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
-function SpendingChart({ transactions }) {
+function SpendingChart({ transactions, color }) {
   // Aggregate transaction amounts by date
   const aggregatedData = transactions.reduce((acc, transaction) => {
     const existing = acc.find(item => item.date === transaction.date);
@@ -25,7 +25,7 @@ function SpendingChart({ transactions }) {
 
   return (
     <div>
-        <h2 className='heading' >Reports</h2>
+        
         <ResponsiveContainer width="100%" height={400}>
         <BarChart
             data={aggregatedData}
@@ -38,7 +38,7 @@ function SpendingChart({ transactions }) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="amount" fill="#8884d8" />
+            <Bar dataKey="amount" fill={color} />
         </BarChart>
         </ResponsiveContainer>
     </div>

@@ -15,12 +15,20 @@ function printLastFive(arr) {
 }
 
 function RecentTransactions(props) {
-    return (<div className="recent">
-        <h2>Recent Transactions</h2>
+    return (
+        
+        <div className="recent">
+        
+        <h2 className='recent-header'>Expense</h2>
+        <h2 className='recent-header'>Income</h2>
         <ul>
             {printLastFive(props.transactions)}
         </ul>
-    </div>)
+        <ul>
+            {printLastFive(props.incomes)}
+        </ul>
+    </div>
+         )
 }
 
 export default RecentTransactions;

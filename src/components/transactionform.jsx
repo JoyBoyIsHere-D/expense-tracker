@@ -95,7 +95,7 @@ function TransactionForm({ addTransaction, editTransaction, editingTransaction }
         <label htmlFor="checkbox1">Recurring</label>
       </div>
       <div className="form-row">
-        <button type="submit">{editingTransaction ? 'Update' : 'Add'} Transaction</button>
+        <button type="submit">{editingTransaction ? 'Update' : 'Add'} Expense</button>
       </div>
     </form>
   );

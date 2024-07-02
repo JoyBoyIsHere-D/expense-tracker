@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Dashboard from './components/dashboard';
 import TransactionForm from './components/transactionform';
 import TransactionList from './components/transactionlist';
@@ -20,6 +20,8 @@ function App() {
 
   const [editingIncome, setEditingIncome] = useState(null);
   const [incomes, setIncomes] = useState([]);
+
+
 
   function addTransaction(transaction) {
     setTransactions([...transactions, transaction]);
@@ -108,13 +110,23 @@ function App() {
     setEditingIncome(null);
   };
 
+  const Section1 = useRef()
+  const Section2 = useRef()
+  const Section3 = useRef()
+
+  const scrollhandler = (elmRef) =>{
+    console.log(elmRef);
+    window.scrollTo({top: elmRef.current.offsetTop-68 , behavior:"smooth"})
+  }
+
   return (
     <div className="App">
-      <Header></Header>
+      <Header scrolling={scrollhandler} section1={Section1} section2={Section2} section3={Section3}></Header>
 
-      <Dashboard total={total} expense={expense} balance={balance} transactions={transactions} />
+      <section id="Dashboard" ref={Section1}><Dashboard total={total} expense={expense} balance={balance} transactions={transactions} /></section>
+
       <div className="container">
-        <RecentTransactions transactions={transactions}></RecentTransactions>
+        <RecentTransactions transactions={transactions} incomes={incomes}></RecentTransactions>
         <TransactionForm
           addTransaction={addTransaction}
           editTransaction={editTransaction}
@@ -126,18 +138,33 @@ function App() {
           editingIncome={editingIncome}
         />
       </div>
-      <h2 className='heading'>Transaction List</h2>
-      <div className="container">
-      
+      <section id="Transactions" ref={Section2} ><h2 className='heading'>Transaction List</h2>
+      <div className="list-header">
+        <h2>Expenses List</h2>
+        <h2>Income List</h2>
+      </div>
+      <div className="list-container" style={{ gap: '80px' }}>
+
         <TransactionList
           transactions={transactions}
           deleteTransaction={deleteTransaction}
           startEditingTransaction={startEditingTransaction}
         />
-        <IncomeList incomes = {incomes} deleteIncome = {deleteIncome} startEditingIncome = {startEditingIncome}></IncomeList>
+        <IncomeList incomes={incomes} deleteIncome={deleteIncome} startEditingIncome={startEditingIncome}></IncomeList>
       </div>
+      </section>
+      
+      <section id="Reports" ref={Section3}>
+        <div className="charts">
+      <h2 className='heading' >Reports</h2>
+        <h3 className="charts-header">Spending Chart</h3>
+        <SpendingChart transactions={transactions} color="#b4140e" ></SpendingChart>
+        <h3 className="charts-header">Earning Chart</h3>
+        <SpendingChart transactions={incomes} color="#3e9c35"></SpendingChart>
+      </div>
+      </section>
+      
 
-      <SpendingChart transactions={transactions}></SpendingChart>
       <Footer />
     </div>
   );
